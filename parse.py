@@ -85,5 +85,8 @@ def parse():
     template = env.get_template('index.html')
     template.stream(entries=make_rows(houston, detroit)).dump('index.html')
 
+    template = env.get_template('math.js')
+    template.stream(houston=houston, detroit=detroit, houston_total=houston_total, detroit_total=detroit_total).dump('math.js')
+
 
 parse()
