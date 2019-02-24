@@ -41,82 +41,39 @@
             </div>
         </div> 
         
-        
+        {% for h, d in entries %}
         <div class="row">
-            
+            {% if h is not none %}
             <div class="col-md-3 offset-md-2">
                 <div class="card">
                     <div class="media">
-                        <img src="./img/254.png" class="mr-3" alt="..." style="width: 64px; height: 64px;">
+                        <img src="./img/{{ h[1]['img'] }}" class="mr-3" alt="..." style="width: 64px; height: 64px;">
                         <div class="media-body">
-                            <h5 class="mt-0">254: The Cheesy Poofs</h5>
-                            0.45
+                            <h5 class="mt-0">{{ h[0] }}: {{ h[1]['name'] }}</h5>
+                            {{ '%.2f' | format(h[1]['per']) }}
                         </div>
                     </div>
                 </div>
             </div>
-            
-            
+            {% else %}
+            <div class="col-md-3 offset-md-2">
+            </div>
+            {% endif %}
+            {% if d is not none %}
             <div class="col-md-3 offset-md-2">
                 <div class="card">
                     <div class="media">
-                        <img src="./img/2056.png" class="mr-3" alt="..." style="width: 64px; height: 64px;">
+                        <img src="./img/{{ d[1]['img'] }}" class="mr-3" alt="..." style="width: 64px; height: 64px;">
                         <div class="media-body">
-                            <h5 class="mt-0">2056: OP Robotics</h5>
-                            0.00
+                            <h5 class="mt-0">{{ d[0] }}: {{ d[1]['name'] }}</h5>
+                            {{ '%.2f' | format(d[1]['per']) }}
                         </div>
                     </div>
                 </div>
             </div>
-            
+            {% endif %}
         </div>
-        
-        <div class="row">
-            
-            <div class="col-md-3 offset-md-2">
-                <div class="card">
-                    <div class="media">
-                        <img src="./img/118.png" class="mr-3" alt="..." style="width: 64px; height: 64px;">
-                        <div class="media-body">
-                            <h5 class="mt-0">118: Robonauts</h5>
-                            1.67
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="col-md-3 offset-md-2">
-                <div class="card">
-                    <div class="media">
-                        <img src="./img/unknown.png" class="mr-3" alt="..." style="width: 64px; height: 64px;">
-                        <div class="media-body">
-                            <h5 class="mt-0">?: New Team</h5>
-                            5.00
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-        
-        <div class="row">
-            
-            <div class="col-md-3 offset-md-2">
-                <div class="card">
-                    <div class="media">
-                        <img src="./img/unknown.png" class="mr-3" alt="..." style="width: 64px; height: 64px;">
-                        <div class="media-body">
-                            <h5 class="mt-0">?: New Team</h5>
-                            15.00
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-        </div>
-        
+        {% endfor %}
 
         
 		<!-- Optional JavaScript -->
