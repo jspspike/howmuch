@@ -16,5 +16,5 @@ function change(key) {
         total = houston_total
     else
         total = detroit_total
-    $('#' + key).text(((total - amount) * (input / (input + amount))).toFixed(2));
+    $('#' + key).text((total - amount) * (input / (input + amount)).toFixed(2));
 }

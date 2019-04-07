@@ -33,6 +33,8 @@ def parse():
         data = line.split(',')
         if data[1] in houston:
             houston[data[1]]['amount'] += float(data[2])
+        elif data[1] in detroit:
+            detroit[data[1]]['amount'] += float(data[2])
         else:
             files = [f for f in os.listdir('./img') if f.startswith(data[1])]
             if len(files) == 0:
