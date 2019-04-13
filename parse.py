@@ -33,8 +33,10 @@ def parse():
         data = line.split(',')
         if data[1] in houston:
             houston[data[1]]['amount'] += float(data[2])
+            houston_total += float(data[2]) 
         elif data[1] in detroit:
             detroit[data[1]]['amount'] += float(data[2])
+            detroit_total += float(data[2])
         else:
             files = [f for f in os.listdir('./img') if f.startswith(data[1])]
             if len(files) == 0:
@@ -54,7 +56,6 @@ def parse():
                     "amount": float(data[2]),
                     "img": img
                 }
-
                 houston_total += houston[data[1]]["amount"]
             else:
                 detroit[data[1]] = {
@@ -62,8 +63,8 @@ def parse():
                     "amount": float(data[2]),
                     "img": img
                 }
-
                 detroit_total += detroit[data[1]]["amount"]
+
             print("Entered:{} {} ({})".format(data[1], response['nickname'], data[3].strip("\n")))
 
     for key in houston:
